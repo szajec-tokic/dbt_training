@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: tech_store
+    database: raw
+    schema: tech_store
+    tables:
+     - city
