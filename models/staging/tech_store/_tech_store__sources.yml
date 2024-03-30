@@ -5,4 +5,10 @@ sources:
     database: raw
     schema: tech_store
     tables:
-     - city
+      - name: city
+      - name: customer
+      - name: employee
+      - name: orders
+      - name: product
+      - name: state
+      - name: zip
