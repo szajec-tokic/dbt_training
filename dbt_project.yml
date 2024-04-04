@@ -11,9 +11,18 @@ seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
+target-path: "target" 
 clean-targets: 
   - "target"
   - "dbt_packages"
+
+seeds:
+  dbt_training:
+    sale_dates:
+      +column_types:
+        sale_date: date
+        name: varchar
+        discount_percent: numeric(18,2)
 
 models:
   dbt_training:
