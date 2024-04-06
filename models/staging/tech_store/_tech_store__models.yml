@@ -10,6 +10,11 @@ models:
           - not_null
   - name: stg_tech_store__employees
   - name: stg_tech_store__orders
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
   - name: stg_tech_store__products
     columns:
       - name: category
