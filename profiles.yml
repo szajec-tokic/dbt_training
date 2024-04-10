@@ -12,7 +12,7 @@ dbt_training:
       warehouse: developer_wh_015
     ci:
       account: yl45797.east-us-2.azure
-      database: nalytics_015
+      database: analytics_015
       password: "{{ env_var('DBT_PASSWORD') }}"
       role: developer_015
       schema: dbt_szajec_ci # QA/UAT/Etc.
