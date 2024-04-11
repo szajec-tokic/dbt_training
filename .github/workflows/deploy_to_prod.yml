@@ -26,6 +26,9 @@ jobs:
           
       - name: Install dbt
         run: pip3 install dbt-snowflake
+      
+      - name: Install packages
+        run: dbt deps
 
       - name: Deploy & Test Models (PROD)
         run: dbt build --profiles-dir . --target prod
