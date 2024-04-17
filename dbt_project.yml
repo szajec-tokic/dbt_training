@@ -15,10 +15,10 @@ target-path: "target"
 clean-targets: 
   - "target"
   - "dbt_packages"
+  - "logs"
 
 seeds:
   dbt_training:
-    +schema: staging
     sale_dates:
       +column_types:
         sale_date: date
@@ -28,18 +28,23 @@ seeds:
 vars:
   default_date: '9999-01-01'
 
+on-run-start: 
+  - "{{ audit_prep() }}"
+  - "{{ audit_log('run_start') }}"
+on-run-end: 
+  - "{{ audit_log('run_end') }}"
+
 models:
   dbt_training:
+    +pre-hook:
+      - "{{ log('THIS IS A PRE-HOOK') }}"
+      - "{{ audit_log('model_start') }}"
+    +post-hook:
+      - "{{ log('THIS IS A POST-HOOK') }}"
+      - "{{ audit_log('model_end') }}"
     staging:
       +materialized: view
-      +schema: staging
     intermediate:
       +materialized: ephemeral
     marts:
       +materialized: table
-      +schema: marts
-      +tags:
-        - p1
-    utilities:
-      +materialized: table
-      +schema: utilities
