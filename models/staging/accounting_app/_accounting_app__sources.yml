@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: accounting_app
+    database: analytics_015
+    schema: raw_accounting_app
+    tables:
+      - name: invoices
