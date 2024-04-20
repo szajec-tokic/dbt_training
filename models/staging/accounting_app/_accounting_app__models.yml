@@ -1,0 +1,4 @@
+version: 2
+
+models:
+  - name: stg_accounting_app__invoices
